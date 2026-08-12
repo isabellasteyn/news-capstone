@@ -1,4 +1,4 @@
-"""Small integration helpers used when an article is approved."""
+"""Services used when an article is approved."""
 
 import requests
 from django.conf import settings
@@ -7,7 +7,12 @@ from requests_oauthlib import OAuth1
 
 
 def notify_article_subscribers(article):
-    """Email readers subscribed to the journalist or publisher."""
+    """Email readers who subscribed to the article source.
+
+    :param article: The approved article.
+    :type article: Article
+    :return: None
+    """
     readers = set(article.author.reader_subscribers.all())
 
     if article.publisher:
@@ -34,7 +39,13 @@ def notify_article_subscribers(article):
 
 
 def post_article_to_x(article):
-    """Post an approved article to X."""
+    """Post an approved article to X.
+
+    :param article: The approved article to post.
+    :type article: Article
+    :return: The response from X, or None if credentials are missing.
+    :rtype: requests.Response or None
+    """
 
     credentials = [
         settings.X_API_KEY,
