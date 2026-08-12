@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+  Articles - Student News
+{% endblock %}
+{% block content %}
+  <h1>Latest News</h1>
+  <div class="cards">
+    {% for article in articles %}
+      <article class="card">
+        <h2>
+          <a href="{% url 'article_detail' article.pk %}">
+            {{ article.title }}
+          </a>
+        </h2>
+        <p class="meta">
+          By {{ article.author.username }}
+          {% if article.publisher %}
+            | {{ article.publisher.name }}
+          {% endif %}
+          | {{ article.created_at|date:"d M Y" }}
+        </p>
+      </article>
+    {% empty %}
+      <p>No approved articles yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{{ newsletter.title }}{% endblock %}
+{% block content %}
+  <h1>{{ newsletter.title }}</h1>
+  <p class="meta">
+    By {{ newsletter.author.username }} |
+    {% if newsletter.publisher %}
+      Publisher: {{ newsletter.publisher.name }}
+    {% else %}
+      Independent
+    {% endif %}
+  </p>
+  <p>{{ newsletter.description }}</p>
+
+  {% for article in articles %}
+    <div class="card">
+      <h2>
+        <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
+      </h2>
+      <p>{{ article.content|truncatewords:25 }}</p>
+    </div>
+  {% empty %}
+    <p>No approved articles in this newsletter.</p>
+  {% endfor %}
+{% endblock %}
