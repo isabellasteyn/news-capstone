@@ -1,0 +1,95 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+}
+
+header {
+  background: #222;
+  color: white;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+nav a, .brand {
+  color: white;
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+main {
+  min-height: 75vh;
+  padding: 30px 0;
+}
+
+.cards {
+  display: grid;
+  gap: 18px;
+}
+
+.card, .form-card, .article {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 a {
+  color: #222;
+}
+
+.meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+form p label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, textarea, select {
+  width: 100%;
+  max-width: 650px;
+  padding: 9px;
+  box-sizing: border-box;
+}
+
+button {
+  background: #222;
+  color: white;
+  border: 0;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.message, .error {
+  padding: 10px;
+  background: #fff3cd;
+  margin-bottom: 15px;
+}
+
+footer {
+  background: #222;
+  color: white;
+  padding: 18px 0;
+}

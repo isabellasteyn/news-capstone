@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Review Articles
+{% endblock %}
+{% block content %}
+  <h1>Articles Awaiting Approval</h1>
+{% for article in articles %} <div class="card"> <h2>{{ article.title }}</h2>
+  <p class="meta">
+    By {{ article.author.username }}
+    {% if article.publisher %}
+      | {{ article.publisher.name }}
+    {% endif %}
+  </p>
+  <p>{{ article.content }}</p>
+  <form method="post" action="{% url 'approve_article' article.pk %}">
+    {% csrf_token %}
+    <button type="submit">Approve Article</button>
+  </form>
+</div>
+{% empty %} <p>No articles are waiting for approval.</p>
+{% endfor %}
+{% endblock %}

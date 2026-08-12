@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram name="News Application Class Diagram" id="class">
+    <mxGraphModel dx="2054" dy="1093" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="user" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="CustomUser" vertex="1">
+          <mxGeometry height="235" width="260" x="30" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="usera" parent="user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="- username: String&lt;br&gt;- email: String&lt;br&gt;- role: String&lt;br&gt;- password: String" vertex="1">
+          <mxGeometry height="90" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="userl" parent="user" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="userm" parent="user" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ is_reader(): bool&lt;br&gt;+ is_editor(): bool&lt;br&gt;+ is_journalist(): bool" vertex="1">
+          <mxGeometry height="90" width="260" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="pub" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="Publisher" vertex="1">
+          <mxGeometry height="190" width="260" x="400" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="puba" parent="pub" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="- name: String&lt;br&gt;- description: Text&lt;br&gt;- editors: ManyToMany&lt;br&gt;- journalists: ManyToMany" vertex="1">
+          <mxGeometry height="60" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="publ" parent="pub" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="pubm" parent="pub" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ add_editor(): void&lt;br&gt;+ add_journalist(): void" vertex="1">
+          <mxGeometry height="60" width="260" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="article" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="Article" vertex="1">
+          <mxGeometry height="250" width="290" x="760" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="articlea" parent="article" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="- title: String&lt;br&gt;- content: Text&lt;br&gt;- created_at: DateTime&lt;br&gt;- approved: Boolean&lt;br&gt;- publisher: Publisher?&lt;br&gt;- author: CustomUser" vertex="1">
+          <mxGeometry height="120" width="290" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="articlel" parent="article" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="290" y="146" as="geometry" />
+        </mxCell>
+        <mxCell id="articlem" parent="article" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ clean(): void&lt;br&gt;+ approve(): void" vertex="1">
+          <mxGeometry height="70" width="290" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="newsletter" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;whiteSpace=wrap;html=1;" value="Newsletter" vertex="1">
+          <mxGeometry height="215" width="290" x="380" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="newsa" parent="newsletter" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="- title: String&lt;br&gt;- description: Text&lt;br&gt;- created_at: DateTime&lt;br&gt;- author: CustomUser&lt;br&gt;- publisher: Publisher?&lt;br&gt;- articles: ManyToMany" vertex="1">
+          <mxGeometry height="100" width="290" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="newsl" parent="newsletter" style="line;strokeWidth=1;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="8" width="290" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="newsm" parent="newsletter" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;whiteSpace=wrap;html=1;" value="+ add_article(): void" vertex="1">
+          <mxGeometry height="50" width="290" y="134" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="userl" style="endArrow=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="article" value="1..* publishes">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="380" as="sourcePoint" />
+            <mxPoint x="770" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" source="puba" style="endArrow=none;html=1;entryX=0.731;entryY=0.016;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" target="article" value="0..1 publisher affiliation">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="150" as="sourcePoint" />
+            <mxPoint x="760" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" source="user" style="endArrow=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" target="newsletter" value="creates">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="260" as="sourcePoint" />
+            <mxPoint x="500" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4" edge="1" parent="1" source="newsletter" style="endArrow=none;html=1;exitX=1;exitY=0.033;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="article" value="contains matching approved articles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="470" as="sourcePoint" />
+            <mxPoint x="760" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5" edge="1" parent="1" source="user" style="endArrow=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=-0.004;entryY=0.047;entryDx=0;entryDy=0;entryPerimeter=0;" target="pub" value="subscribes to">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="100" as="sourcePoint" />
+            <mxPoint x="400" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
