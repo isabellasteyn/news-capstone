@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %}{{ article.title }}{% endblock %} {% block content %}
+<article class="article">
+  <h1>{{ article.title }}</h1>
+  <p class="meta">
+    By {{ article.author.username }}{% if article.publisher %} for {{ article.publisher.name }}{% endif %}
+    | {{ article.created_at|date:"d M Y H:i" }}
+  </p>
+  <div class="article-content">{{ article.content|linebreaks }}</div>
+</article>
+{% endblock %}

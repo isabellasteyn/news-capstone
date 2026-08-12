@@ -1,0 +1,59 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{% block title %}Student News{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'news/styles.css' %}" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="brand" href="{% url 'article_list' %}">Student News</a>
+
+        <nav class="main-nav">
+          <a href="{% url 'article_list' %}">Articles</a>
+          <a href="{% url 'newsletter_list' %}">Newsletters</a>
+
+          {% if user.is_authenticated %} {% if user.role == 'reader' %}
+          <a href="{% url 'subscriptions' %}">Subscriptions</a>
+          {% endif %} {% if user.role == 'journalist' %}
+          <a href="{% url 'article_create' %}">New Article</a>
+          {% endif %} {% if user.role == 'journalist' or user.role == 'editor'
+          %}
+          <a href="{% url 'newsletter_create' %}">New Newsletter</a>
+          {% endif %} {% if user.role == 'editor' %}
+          <a href="{% url 'editor_articles' %}">Review Articles</a>
+          {% endif %} {% endif %}
+        </nav>
+
+        <div class="user-nav">
+          {% if user.is_authenticated %}
+          <span class="user">
+            {{ user.username }} ({{ user.get_role_display }})
+          </span>
+          <a href="{% url 'logout' %}">Log out</a>
+          {% else %}
+          <a href="{% url 'login' %}">Log in</a>
+          <a href="{% url 'register' %}">Register</a>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      {% for message in messages %}
+      <div class="message">{{ message }}</div>
+      {% endfor %} {% block content %} {% endblock %}
+    </main>
+
+    <footer>
+      <div class="container">Django News Application - Capstone Project</div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram name="Article Approval Sequence Diagram" id="sequence">
+    <mxGraphModel dx="2054" dy="1093" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="Editor" vertex="1">
+          <mxGeometry height="60" width="130" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="Web Browser" vertex="1">
+          <mxGeometry height="60" width="130" x="250" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="Django View" vertex="1">
+          <mxGeometry height="60" width="130" x="440" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="MariaDB" vertex="1">
+          <mxGeometry height="60" width="130" x="630" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="Post-save Signal" vertex="1">
+          <mxGeometry height="60" width="150" x="820" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="f" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" value="Email / X" vertex="1">
+          <mxGeometry height="60" width="130" x="1030" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="la" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="100" as="sourcePoint" />
+            <mxPoint x="125" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lb" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="100" as="sourcePoint" />
+            <mxPoint x="315" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lc" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="505" y="100" as="sourcePoint" />
+            <mxPoint x="505" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ld" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="695" y="100" as="sourcePoint" />
+            <mxPoint x="695" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="le" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="895" y="100" as="sourcePoint" />
+            <mxPoint x="895" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lf" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1095" y="100" as="sourcePoint" />
+            <mxPoint x="1095" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="1: Open review page">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="125" y="150" as="sourcePoint" />
+            <mxPoint x="315" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="2: GET /editor/articles/">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="210" as="sourcePoint" />
+            <mxPoint x="505" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="3: Load independent / &lt;br&gt;affiliated publisher articles">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="505" y="270" as="sourcePoint" />
+            <mxPoint x="695" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="4: Display review page">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="505" y="330" as="sourcePoint" />
+            <mxPoint x="315" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="5: POST approve allowed article">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315" y="390" as="sourcePoint" />
+            <mxPoint x="505" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="6: Set approved=True and save">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="505" y="450" as="sourcePoint" />
+            <mxPoint x="695" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="7: post_save signal">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="695" y="510" as="sourcePoint" />
+            <mxPoint x="895" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="8: Email subscribers / POST to X">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="895" y="570" as="sourcePoint" />
+            <mxPoint x="1095" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m9" edge="1" parent="1" style="endArrow=block;html=1;labelBackgroundColor=#ffffff;" value="9: Approval response">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="505" y="630" as="sourcePoint" />
+            <mxPoint x="315" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

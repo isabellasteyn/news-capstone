@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Subscriptions
+{% endblock %}
+
+{% block content %}
+
+  <h1>My Subscriptions</h1>
+
+  <form method="post" class="form-card">
+    {% csrf_token %}
+
+    <h2>Publishers</h2>
+
+    {% for publisher in publishers %}
+      <label>
+        <input
+          type="checkbox"
+          name="publishers"
+          value="{{ publisher.id }}"
+          {% if publisher in user.publisher_subscriptions.all %}checked{% endif %}
+        />
+        {{ publisher.name }}
+      </label>
+      <br />
+    {% endfor %}
+
+    <h2>Journalists</h2>
+
+    {% for journalist in journalists %}
+      <label>
+        <input
+          type="checkbox"
+          name="journalists"
+          value="{{ journalist.id }}"
+          {% if journalist in user.journalist_subscriptions.all %}checked{% endif %}
+        />
+        {{ journalist.username }}
+      </label>
+      <br />
+    {% endfor %}
+
+    <br />
+
+    <button type="submit">Save Subscriptions</button>
+
+  </form>
+{% endblock %}
