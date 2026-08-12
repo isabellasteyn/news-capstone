@@ -53,12 +53,15 @@ class CustomUser(AbstractUser):
         return f"{self.username} ({self.role})"
 
     def is_reader(self):
+        """Return True if the user is a Reader."""
         return self.role == self.READER
 
     def is_editor(self):
+        """Return True if the user is an Editor."""
         return self.role == self.EDITOR
 
     def is_journalist(self):
+        """Return True if the user is a Journalist."""
         return self.role == self.JOURNALIST
 
 
