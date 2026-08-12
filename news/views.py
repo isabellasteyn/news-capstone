@@ -1,4 +1,4 @@
-"""HTML views for the news application."""
+"""Views used to display and manage news content."""
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -15,7 +15,7 @@ from .permissions import (
 
 
 def article_list(request):
-    """Show all approved articles."""
+    """Display all approved articles."""
     articles = Article.objects.filter(approved=True).select_related(
         "author", "publisher"
     )
@@ -23,7 +23,7 @@ def article_list(request):
 
 
 def article_detail(request, pk):
-    """Show one approved article."""
+    """Display one approved article."""
     article = get_object_or_404(Article, pk=pk, approved=True)
     return render(request, "news/article_detail.html", {"article": article})
 
@@ -52,7 +52,7 @@ def newsletter_detail(request, pk):
 
 
 def register(request):
-    """Register a user, then log them in."""
+    """Register and log in a new user."""
     form = RegistrationForm(request.POST or None)
 
     if request.method == "POST" and form.is_valid():
@@ -64,7 +64,7 @@ def register(request):
 
 
 def login_view(request):
-    """Authenticate a user with a username and password."""
+    """Log in a user with their username and password."""
     error = None
 
     if request.method == "POST":
@@ -90,7 +90,7 @@ def logout_view(request):
 @login_required
 @role_required(CustomUser.JOURNALIST)
 def article_create(request):
-    """Allow journalists to submit a new article for approval."""
+    """Allow a journalist to create an article."""
     form = ArticleForm(
         request.POST or None,
         author=request.user,
@@ -119,7 +119,7 @@ def my_articles(request):
 @login_required
 @role_required(CustomUser.EDITOR, CustomUser.JOURNALIST)
 def article_update(request, pk):
-    """Allow an editor or the original journalist to edit an article."""
+    """Allow an authorised user to update an article."""
     article = get_object_or_404(Article, pk=pk)
 
     if request.user.role == CustomUser.JOURNALIST:
@@ -219,7 +219,7 @@ def editor_articles(request):
 @login_required
 @role_required(CustomUser.EDITOR)
 def approve_article(request, pk):
-    """Approve an independent or editor-affiliated publisher article."""
+    """Allow an editor to approve an article."""
     article = get_object_or_404(Article, pk=pk)
 
     if not editor_can_manage_article(request.user, article):
@@ -236,7 +236,7 @@ def approve_article(request, pk):
 @login_required
 @role_required(CustomUser.READER)
 def subscriptions(request):
-    """Let readers manage publisher and journalist subscriptions."""
+    """Allow a Reader to manage their subscriptions."""
     publishers = Publisher.objects.all()
     journalists = CustomUser.objects.filter(role=CustomUser.JOURNALIST)
 
