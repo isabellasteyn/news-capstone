@@ -1,4 +1,4 @@
-"""Models for the student news application."""
+"""Models for the News Capstone Django application."""
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -24,7 +24,7 @@ class Publisher(models.Model):
 
 
 class CustomUser(AbstractUser):
-    """User with a simple Reader, Editor or Journalist role."""
+    """User with a Reader, Editor or Journalist role."""
 
     READER = "reader"
     EDITOR = "editor"
