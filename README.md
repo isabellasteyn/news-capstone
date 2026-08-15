@@ -19,7 +19,7 @@ A News Application built with Django and Django REST Framework.
 
 1. Create a virtual environment:
 
-python -m venv venv
+python -m venv .venv
 
 2. Activate it and install requirements:
 
