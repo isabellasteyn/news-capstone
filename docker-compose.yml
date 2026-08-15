@@ -9,6 +9,7 @@ services:
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root-password}
     volumes:
       - news_db_data:/var/lib/mysql
+      - ./init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql
     healthcheck:
       test:
         - CMD
